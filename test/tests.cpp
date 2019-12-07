@@ -7,20 +7,20 @@
 TEST(state,state_1)
 {
 	Automata A;
-	EXPECT_EQ(A.getState, 0);
+	EXPECT_EQ(A.getState(), 0);
 }
 TEST(state, state_2)
 {
 	Automata A;
 	A.on();
-	EXPECT_EQ(A.getState, 1);
+	EXPECT_EQ(A.getState(), 1);
 }
 TEST(state, state_3)
 {
 	Automata A;
 	A.on();
 	A.coin(10);
-	EXPECT_EQ(A.getState, 2);
+	EXPECT_EQ(A.getState(), 2);
 }
 TEST(state, state_4)
 {
@@ -28,7 +28,7 @@ TEST(state, state_4)
 	A.on();
 	A.coin(10);
 	A.choice();
-	EXPECT_EQ(A.getState, 3);
+	EXPECT_EQ(A.getState(), 3);
 }
 TEST(state, state_5)
 {
@@ -37,7 +37,7 @@ TEST(state, state_5)
 	A.coin(10);
 	A.choice();
 	A.cook();
-	EXPECT_EQ(A.getState, 4);
+	EXPECT_EQ(A.getState(), 4);
 }
 TEST(state, state_6)
 {
@@ -47,7 +47,7 @@ TEST(state, state_6)
 	A.choice();
 	A.cook();
 	A.finish();
-	EXPECT_EQ(A.getState, 1);
+	EXPECT_EQ(A.getState(), 1);
 }
 TEST(state, state_7)
 {
@@ -56,7 +56,7 @@ TEST(state, state_7)
 	A.choice();
 	A.cook();
 	A.finish();
-	EXPECT_EQ(A.getState, 0);
+	EXPECT_EQ(A.getState(), 0);
 }
 //check money
 TEST(money, money_1)
