@@ -19,9 +19,10 @@ file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 
 
 set(SRC_FILES1 ${PROJECT_SOURCE_DIR}/src/automata.cpp)
-set(SRC_FILES2 ${PROJECT_SOURCE_DIR}/src/main.cpp)
+
 
 set(CMAKE_CXX_STANDARD 11)
+
 
 ################################
 # Testing
@@ -47,9 +48,6 @@ if (BUILD_TESTS)
 
   # Standard linking to gtest stuff.
   target_link_libraries(runUnitTests gtest gtest_main)
-
-  # Extra linking for the project.
-  #target_link_libraries(runUnitTests task1_lib task2_lib task3_lib)
 
   # This is so you can do 'make test' to see all your tests run, instead of
   # manually running the executable runUnitTests to see those specific tests.
