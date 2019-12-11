@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Make PROJECT_SOURCE_DIR, PROJECT_BINARY_DIR, and PROJECT_NAME available.
-set(PROJECT_NAME automata) 
+set(PROJECT_NAME Automata)
 project(${PROJECT_NAME})
 
 set(CMAKE_CXX_FLAGS "-g -Wall")
@@ -15,18 +15,24 @@ set(CMAKE_CXX_FLAGS "-g -Wall")
 #----------------------------------------------------------------------------
 set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/include)
 include_directories(${COMMON_INCLUDES})
+set(TEST_SRC_FILES1 ${PROJECT_SOURCE_DIR})
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 
+add_subdirectory(ext/gtest-1.8.0)
+include_directories(ext/gtest-1.8.0/googletest/include)
 
-set(SRC_FILES1 ${PROJECT_SOURCE_DIR}/src/automata.cpp)
+set(SRC_FILES ${PROJECT_SOURCE_DIR}
+        src/Automata.cpp include/Automata.h)
+
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_library(automata_lib ${SRC_FILES1})
 
-add_executable(automata ${PROJECT_SOURCE_DIR}/src/main.cpp )
+add_executable(automata_run src/main.cpp ${SRC_FILES})
+add_executable(tests_run test/tests.cpp ${TEST_SRC_FILES1} ${SRC_FILES})
 
-target_link_libraries(automata automata_lib)
+target_link_libraries(tests_run gtest gtest_main)
+
 
 ################################
 # Testing
@@ -37,7 +43,6 @@ option(BUILD_TESTS "Build all tests." OFF) # Makes boolean 'test' available.
 
 if (BUILD_TESTS)
   # This adds another subdirectory, which has 'project(gtest)'.
-  add_subdirectory(ext/gtest-1.8.0)
 
   enable_testing()
 
@@ -48,13 +53,14 @@ if (BUILD_TESTS)
   ##############
   # Unit Tests
   ##############
-  add_executable(runUnitTests ${TEST_SRC_FILES})
+  add_executable(runUnitTests ${TEST_SRC_FILES} ${SRC_FILES})
 
   # Standard linking to gtest stuff.
   target_link_libraries(runUnitTests gtest gtest_main)
 
+
   # Extra linking for the project.
-  target_link_libraries(runUnitTests automata_lib)
+  #target_link_libraries(runUnitTests task1_lib task2_lib task3_lib)
 
   # This is so you can do 'make test' to see all your tests run, instead of
   # manually running the executable runUnitTests to see those specific tests.
