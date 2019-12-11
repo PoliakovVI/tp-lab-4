@@ -24,7 +24,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_library(automata_lib ${SRC_FILES1})
 
-add_executable(automata {PROJECT_SOURCE_DIR}/src/main.cpp)
+add_executable(automata ${PROJECT_SOURCE_DIR}/src/main1.cpp )
 
 target_link_libraries(automata automata_lib)
 
