@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Make PROJECT_SOURCE_DIR, PROJECT_BINARY_DIR, and PROJECT_NAME available.
-set(PROJECT_NAME Automata)
+set(PROJECT_NAME automata)
 project(${PROJECT_NAME})
 
 set(CMAKE_CXX_FLAGS "-g -Wall")
@@ -22,7 +22,7 @@ add_subdirectory(ext/gtest-1.8.0)
 include_directories(ext/gtest-1.8.0/googletest/include)
 
 set(SRC_FILES ${PROJECT_SOURCE_DIR}
-        src/Automata.cpp include/Automata.h)
+        src/automata.cpp include/automata.h)
 
 
 set(CMAKE_CXX_STANDARD 11)
