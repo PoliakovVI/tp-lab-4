@@ -1,5 +1,4 @@
 #include "automata.h"
-#include <Windows.h>
 #include <iostream>
 using namespace std;
 Automata::Automata() {
