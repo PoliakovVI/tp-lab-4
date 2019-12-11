@@ -7,7 +7,6 @@ using namespace std;
 void prod(int number) {
 	cout << number << ":" << endl;
 	for (int i = 0; i < 10; i++) {
-		Sleep(500);
 		cout << "|";
 	}
 	cout << "\n";
