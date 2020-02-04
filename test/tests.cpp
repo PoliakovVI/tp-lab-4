@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "automata.h"
-#include <string>
+#include "Automata.h"
 
 //check state
 TEST(state,state_1)

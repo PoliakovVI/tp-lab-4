@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "automata.h"
+#include "Automata.h"
 #include <iostream>
 #include <stdio.h>
 #include <string>
